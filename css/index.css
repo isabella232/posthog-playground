@@ -5,10 +5,15 @@
  */
 body {
   padding-top: 56px;
+  background-color: #191a1b;
 }
 
 .header-bg {
-  background-color: #040c25;
+  background-color: #132774;
+}
+
+.header-bg > h1 {
+  color: black !important;
 }
 
 .banner-image {
@@ -18,4 +23,16 @@ body {
 
 .navbar-dark {
   background-color: #00040c !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+}
+
+p {
+  color: #bebebe;
+}
+
+.about-paragraph {
+  max-width: 70%; 
 }
