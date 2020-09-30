@@ -1,25 +1,32 @@
-
-posthog.init('sTMFPsFhdP1Ssg', { api_host: 'https://app.posthog.com', loaded: () => { updateFeatureFlagsDisplay(0) } })
-
-
 const resultElementFlag1 = document.getElementById('result-flag-1')
 const resultElementFlag2 = document.getElementById('result-flag-2')
 const iceCreamSelectorElement = document.getElementById('select-ice-cream')
+const savePreferenceElement = document.getElementById('save-preference-btn')
+const loadingRingElement = document.getElementById('loading-ring')
+let loadingRingOn = false
+
+posthog.init(
+    'sTMFPsFhdP1Ssg', 
+    { 
+        api_host: 'https://app.posthog.com', 
+        loaded: () => { updateFeatureFlagsDisplay(0) 
+    } 
+})
 
 const updateFeatureFlagsDisplay = (timeout) => {
     setTimeout(() => {
-        resultElementFlag1.innerHTML = posthog.isFeatureEnabled('demo-flag-1') ? 'On' : 'Off'
-        resultElementFlag2.innerHTML = posthog.isFeatureEnabled('demo-flag-2') ? 'On' : 'Off'
+        const isFeature1Enabled = posthog.isFeatureEnabled('demo-flag-1')
+        const isFeature2Enabled = posthog.isFeatureEnabled('demo-flag-2')
+
+        resultElementFlag1.innerHTML = isFeature1Enabled ? 'On' : 'Off'
+        resultElementFlag2.innerHTML = isFeature2Enabled ? 'On' : 'Off'
     
-        resultElementFlag1['style']['color'] = resultElementFlag1.innerHTML === 'On' ? 'green' : 'red'
-        resultElementFlag2['style']['color'] = resultElementFlag2.innerHTML === 'On' ? 'green' : 'red'
+        resultElementFlag1['style']['color'] = isFeature1Enabled ? 'green' : 'red'
+        resultElementFlag2['style']['color'] = isFeature2Enabled ? 'green' : 'red'
+        savePreferenceElement['className'] = 'btn btn-md ' + (isFeature2Enabled ? 'btn-success' : 'btn-primary')
+        console.log('[POSTHOG] Updated display')
     }, timeout)
-
-
 }
-
-const loadingRingElement = document.getElementById('loading-ring')
-let loadingRingOn = false
 
 const toggleLoadingRing = () => {
     if (loadingRingOn) loadingRingElement['style']['display'] = 'none'
@@ -27,20 +34,28 @@ const toggleLoadingRing = () => {
     loadingRingOn = !loadingRingOn
 }
 
-document.getElementById('save-preference-btn').addEventListener('click', () => {
+const handlePreferenceChange = () => {
     toggleLoadingRing()
     posthog.people.set({ 'favorite_icecream': iceCreamSelectorElement.value })
-    console.log("Flushing!")
+    console.log('[POSTHOG] Set user property')
     posthog.people._flush()
+    console.log('[POSTHOG] Flushing...')
     setTimeout(() => {
+        console.log('[POSTHOG] Reloading feature flags')
         posthog.reloadFeatureFlags()
     }, 2000)
     setTimeout(() => {
         toggleLoadingRing()
     }, 3000)
-})
+}
+
+// Listeners
+
+savePreferenceElement.addEventListener('click', handlePreferenceChange)
 
 posthog.onFeatureFlags(() => {
-    console.log('update!')
+    console.log('[POSTHOG] Feature flags reloaded successfully')
+    console.log('[POSTHOG] Updating display...')
     updateFeatureFlagsDisplay(500)
 })
+

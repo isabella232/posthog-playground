@@ -37,6 +37,10 @@
   animation: lds-dual-ring 1.2s linear infinite;
 }
 
+code {
+    font-size: 14px !important;
+}
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);
