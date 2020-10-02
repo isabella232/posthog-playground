@@ -75,7 +75,11 @@
         <hr>
         <p class="about-paragraph">
           In this playground you can go through a fake signup process and see how that affects a real PostHog funnel embedded
-          into the page.
+          into the page. You can use fake data or even leave the fields empty.
+        </p>
+        <p class="about-paragraph">
+          Based on your clicks, PostHog will calculate the conversion of users from one step in the signup process to the next, and you'll
+          be able to see that on the iframe on the right, which contains a real PostHog funnel.
         </p>
 <!--         <a class="btn btn-primary btn-lg" target="_blank" href="https://posthog.com/docs/tutorials/funnels">Access
           Funnels Tutorial &raquo;</a> -->
@@ -88,7 +92,7 @@
 
     <div class="row">
       <div class="col-md-6 mb-2">
-        <h2>Sign Up for CoolFakeProduct</h2>
+        <h2>Sign Up for Hogflix</h2>
         <small><a href="javascript:restartProcess();">Click here to restart the signup process.</a></small>
         <br />
         <br />
@@ -99,7 +103,7 @@
       </div>
 
       <div class="col-md-6 mb-2">
-        <iframe src="https://app.posthog.com/shared_dashboard/Nw_ZpTswfsOufPVSz9xF58OXYLOkhQ" id="funnel-iframe" class="dashboard-iframe"></iframe>
+        <iframe alt="PostHog Funnel" src="https://app.posthog.com/shared_dashboard/Nw_ZpTswfsOufPVSz9xF58OXYLOkhQ" id="funnel-iframe" class="dashboard-iframe"></iframe>
         <p class="centered"><a href="javascript:refreshIframe();">Refresh iframe</a><small class="centered">Please note that updates can take a few minutes</small></p>
       </div>
 
