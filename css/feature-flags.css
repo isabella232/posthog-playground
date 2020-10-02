@@ -33,6 +33,17 @@ code {
     font-size: 14px !important;
 }
 
+.tooltip-info {
+  font-size: 20px !important;
+  color: #8f8f8f !important;
+  margin-left: 10px !important;
+  padding-bottom: 5px !important;
+}
+
+.tooltip-inner {
+  max-width: 350px;
+}
+
 @keyframes lds-dual-ring {
   0% {
     transform: rotate(0deg);

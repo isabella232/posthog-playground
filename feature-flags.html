@@ -77,8 +77,16 @@
         <hr>
         <p class="about-paragraph">
           In this playground you can see how feature flags work by selecting your favorite ice cream flavor. You can
-          also open your developer
-          tools console to see logs from the PostHog feature flag functions being called.
+          also <b>open your developer
+          tools console</b> to see logs from the PostHog feature flag functions being called.
+        </p>
+        <p class="about-paragraph">
+          Demo Flag 1 will be on for 50% of users and off for the rest. You cannot change this. You may access this website from a different
+          browser to potentially see the difference. 
+        </p>
+        <p class="about-paragraph">
+          Demo Flag 2 will be on for users who select vanilla as their favorite ice cream flavor. Try changing your preference and see how
+          the page changes.
         </p>
 <!--         <a class="btn btn-primary btn-lg" target="_blank" href="https://posthog.com/docs/tutorials/feature-flags">Access
           Feature Flags Tutorial &raquo;</a> -->
@@ -91,8 +99,14 @@
 
     <div class="row">
       <div class="col-md-12 mb-4">
-        <h4>Demo Flag 1: <span id="result-flag-1"></span></h4>
-        <h4>Demo Flag 2: <span id="result-flag-2"></span></h4>
+        <h4>Demo Flag 1: 
+          <span id="result-flag-1"></span>
+          <span class="tooltip-info" data-toggle="tooltip" data-placement="right" title="Demo Flag 1: On for 50% of users. Determines the color of the 'Save Preference' button.">ⓘ</span>
+        </h4>
+        <h4>Demo Flag 2: 
+          <span id="result-flag-2"></span>
+          <span class="tooltip-info" data-toggle="tooltip" data-placement="right" title="Demo Flag 2: On for users with their favorite ice cream preference set to vanilla. Determines the color of the ice cream selector element.">ⓘ</span>
+        </h4>
         <br />
         <p>Select your favorite ice cream flavor:</p>
 
@@ -166,6 +180,7 @@
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="scripts/feature-flags.js"></script>
+  <script src="scripts/tooltips.js"></script>
 
 </body>
 

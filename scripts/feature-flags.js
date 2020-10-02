@@ -26,7 +26,13 @@ const updateFeatureFlagsDisplay = (timeout) => {
     
         resultElementFlag1['style']['color'] = isFeature1Enabled ? 'green' : 'red'
         resultElementFlag2['style']['color'] = isFeature2Enabled ? 'green' : 'red'
+
+        // If Demo Flag 1 is enabled, set the button color to green, else blue
         savePreferenceElement['className'] = 'btn btn-md ' + (isFeature1Enabled ? 'btn-success' : 'btn-primary')
+
+        // If Demo Flag 2 is enabled, set the input bg color to light blue, else white
+        iceCreamSelectorElement['style']['background-color'] = isFeature2Enabled ? '#92ffeb' : 'white'
+
         console.log('[POSTHOG] Updated display')
     }, timeout)
 }
