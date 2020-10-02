@@ -74,14 +74,20 @@
         <h2>About this Playground</h2>
         <hr>
         <p class="about-paragraph">
-          In this playground you can go through a fake signup process and see how that affects a real PostHog funnel embedded
+          In this playground you can go through a fake signup process and see how that affects a real PostHog funnel
+          embedded
           into the page. You can use fake data or even leave the fields empty.
         </p>
         <p class="about-paragraph">
-          Based on your clicks, PostHog will calculate the conversion of users from one step in the signup process to the next, and you'll
+          Based on your clicks, PostHog will calculate the conversion of users from one step in the signup process to
+          the next, and you'll
           be able to see that on the iframe on the right, which contains a real PostHog funnel.
         </p>
-<!--         <a class="btn btn-primary btn-lg" target="_blank" href="https://posthog.com/docs/tutorials/funnels">Access
+        <p class="about-paragraph">
+          You can visit the funnel's dashboard page directly <a
+            href="https://app.posthog.com/shared_dashboard/Nw_ZpTswfsOufPVSz9xF58OXYLOkhQ" target="_blank">here.</a>
+        </p>
+        <!--         <a class="btn btn-primary btn-lg" target="_blank" href="https://posthog.com/docs/tutorials/funnels">Access
           Funnels Tutorial &raquo;</a> -->
       </div>
       <!-- /.row -->
@@ -103,14 +109,19 @@
       </div>
 
       <div class="col-md-6 mb-2">
-        <iframe alt="PostHog Funnel" src="https://app.posthog.com/shared_dashboard/Nw_ZpTswfsOufPVSz9xF58OXYLOkhQ" id="funnel-iframe" class="dashboard-iframe"></iframe>
-        <p class="centered"><a href="javascript:refreshIframe();">Refresh iframe</a><small class="centered">Please note that updates can take a few minutes</small></p>
+        <div class="iframe-container">
+          <iframe alt="PostHog Funnel" src="https://app.posthog.com/shared_dashboard/Nw_ZpTswfsOufPVSz9xF58OXYLOkhQ"
+            id="funnel-iframe" class="dashboard-iframe"></iframe>
+        </div>
+        <p class="centered"><a href="javascript:refreshIframe();">Refresh iframe</a><small class="centered">Please note
+            that updates can take a few minutes</small></p>
       </div>
 
       <div class="col-md-12 mb-2">
         <br />
         <small class="centered">
-          <b>Pro tip:</b> To see clear changes in the funnel, you can access this page from different browsers and drop off the sign up process
+          <b>Pro tip:</b> To see clear changes in the funnel, you can access this page from different browsers and drop
+          off the sign up process
           at different stages.
         </small>
       </div>
@@ -125,24 +136,36 @@
         <h2>What's going on here?</h1>
           <br />
           <p>
-            This page has no additional PostHog setup beyond adding the  <a target="_blank" href="https://posthog.com/docs/integrations/js-integration#installation">snippet</a> on the header. Since PostHog has 
-            <a target="_blank" href="https://posthog.com/docs/integrations/js-integration#autocapture">event autocapture</a> out 
-            of the box, there is no need to send additional custom events to begin gathering insights through funnels and other tools.
+            This page has no additional PostHog setup beyond adding the <a target="_blank"
+              href="https://posthog.com/docs/integrations/js-integration#installation">snippet</a> on the header. Since
+            PostHog has
+            <a target="_blank" href="https://posthog.com/docs/integrations/js-integration#autocapture">event
+              autocapture</a> out
+            of the box, there is no need to send additional custom events to begin gathering insights through funnels
+            and other tools.
           </p>
           <p>
-            In this case, <a target="_blank" href="https://posthog.com/docs/features/actions">actions</a> were created from the autocaptured events (button clicks) and these actions were then used as steps on the funnel.
-            The funnel being displayed here is a real PostHog funnel, which has been embedded into the page via our <a target="_blank" href="https://posthog.com/docs/features/dashboards">shared dashboards</a>
-            functionality. 
+            In this case, <a target="_blank" href="https://posthog.com/docs/features/actions">actions</a> were created
+            from the autocaptured events (button clicks) and these actions were then used as steps on the funnel.
+            The funnel being displayed here is a real PostHog funnel, which has been embedded into the page via our <a
+              target="_blank" href="https://posthog.com/docs/features/dashboards">shared dashboards</a>
+            functionality.
           </p>
           <p>
-            As you go through the sign up process, your clicks to move onto the next step are recorded and reflected in the funnel. Please note 
-            that updates will not be immediate, so make sure to refresh the iframe after a few minutes to see the changes.
+            As you go through the sign up process, your clicks to move onto the next step are recorded and reflected in
+            the funnel. Please note
+            that updates will not be immediate, so make sure to refresh the iframe after a few minutes to see the
+            changes.
           </p>
           <p>
-            Another important comment is that PostHog funnels measure unique users. As such, once your events have been recorded, going through
-            the sign up process again will not change the funnel (unless you did not previously complete the process). Currently, the funnel is
-            set to a time range of "Last 48 hours", which means that it does not matter when your events were recorded within the 48 hours.
-            If you do step 1 this morning and step 2 tomorrow afternoon, this will still count as a conversion in the funnel.
+            Another important comment is that PostHog funnels measure unique users. As such, once your events have been
+            recorded, going through
+            the sign up process again will not change the funnel (unless you did not previously complete the process).
+            Currently, the funnel is
+            set to a time range of "Last 48 hours", which means that it does not matter when your events were recorded
+            within the 48 hours.
+            If you do step 1 this morning and step 2 tomorrow afternoon, this will still count as a conversion in the
+            funnel.
           </p>
       </div>
       <!-- /.row -->

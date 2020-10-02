@@ -18,6 +18,10 @@
     clip: rect(110px,110px,100px,250px);
 }
 
+.iframe-container {
+    background-color: #5a49bb;
+}
+
 .centered {
     display: block;
     text-align: center;
