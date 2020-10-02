@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Funnels - PostHog Tutorials</title>
+  <title>Funnels - PostHog Playground</title>
 
   <!-- Bootstrap core CSS -->
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -28,26 +28,21 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="index.html">PostHog Tutorials</a>
+      <a class="navbar-brand" href="index.html">PostHog Playground</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item">
+            <a class="nav-link" href="https://posthog.com" target="_blank">PostHog Website</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" target="_blank">PostHog Website</a>
+            <a class="nav-link" href="https://posthog.com/docs/tutorials" target="_blank">Tutorials</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Tutorials</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Try PostHog</a>
+            <a class="nav-link" href="https://app.posthog.com" target="_blank">Try PostHog</a>
           </li>
         </ul>
       </div>
@@ -61,7 +56,8 @@
         <div class="col-lg-12">
           <h1 class="display-4 text-white mt-5 mb-2">Funnels Playground <img class="banner-image"
               src="./static/posthog-logo-circle.png" /></h1>
-          <p class="lead mb-5 text-white-50">This page is a supporting resource and playground for our <a href="https://posthog.com/docs/tutorials/funnels">Funnels Tutorial</a>.</p>
+          <p class="lead mb-5 text-white-50">This page is a supporting resource and playground for our <a
+              href="https://posthog.com/docs/tutorials/funnels">Funnels Tutorial</a>.</p>
         </div>
       </div>
     </div>
@@ -75,31 +71,56 @@
         <h2>About this Playground</h2>
         <hr>
         <p class="about-paragraph">
-          In this playground you can go through a signup process and see how that affects a PostHog funnel embedded into the page.
+          In this playground you can go through a fake signup process and see how that affects a real PostHog funnel embedded
+          into the page.
         </p>
-        <a class="btn btn-primary btn-lg" target="_blank" href="https://posthog.com/docs/tutorials/funnels">Access Funnels Tutorial &raquo;</a>
+        <a class="btn btn-primary btn-lg" target="_blank" href="https://posthog.com/docs/tutorials/funnels">Access
+          Funnels Tutorial &raquo;</a>
+      </div>
+      <!-- /.row -->
+    </div>
+
+    <hr class="divider" />
+    <br />
+
+    <div class="row">
+      <div class="col-md-6 mb-5">
+        <h2>Sign Up for CoolFakeProduct</h2>
+        <small><a href="javascript:restartProcess();">Click here to restart the signup process.</a></small>
+        <br />
+        <br />
+        <div id="signup-area">
+
+        </div>
+        <br /><br />
+      </div>
+
+      <div class="col-md-6 mb-5">
+        <iframe src="https://app.posthog.com/shared_dashboard/Nw_ZpTswfsOufPVSz9xF58OXYLOkhQ" id="funnel-iframe" class="dashboard-iframe"></iframe>
+        <p class="centered"><a href="javascript:refreshIframe();">Refresh iframe</a><small class="centered">Please note that updates can take a few minutes</small></p>
+        
+
       </div>
       <!-- /.row -->
     </div>
 
 
-    <iframe src="https://app.posthog.com/shared_dashboard/eG9S6Io0LwY0M0yr2FcYFVd2ulZ1zQ" style="border: none; width:100%; height:425px"></iframe>
 
+    <!--   <iframe src="https://app.posthog.com/shared_dashboard/eG9S6Io0LwY0M0yr2FcYFVd2ulZ1zQ" style="border: none; width:100%; height:425px"></iframe>
+ -->
+    <br />
+    <br />
 
-    </div>
+  </div>
   <!-- /.container -->
 
-  <!-- Footer -->
-  <!--  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
-    </div>
-     /.container 
-  </footer> -->
 
   <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="scripts/funnels.js"></script>
+  <script src="scripts/iframe.js"></script>
+
 
 </body>
 
